@@ -12,16 +12,39 @@
         overflow-y: auto;
         border: 1px solid red;
       }
+      .content {
+        position: relative;
+      }
+      .item {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
     </style>
   </head>
   <body>
     <div id="app">
       <div
         class="client-wrapper"
-        :style="`height: ${ n * rowHeight }px`"
+        :style="`height: ${ limit * rowHeight }px`"
         @scroll="onScroll"
       >
-        <div class="content" :style="`height: ${ contentHeight }px`"></div>
+        <ul class="content" :style="`height: ${ contentHeight }px`">
+          <li
+            class="item"
+            v-for="item in contentData"
+            :key="item.index"
+            :style="`
+              height: ${ rowHeight }px;
+              line-height: ${rowHeight}px;
+              border-bottom: 1px solid #f0f0f0;
+              top: ${ item.index * rowHeight }px;
+            `"
+          >
+            {{ item.title }} {{ item.index * rowHeight }}
+          </>
+        </>
       </div>
     </div>
 
