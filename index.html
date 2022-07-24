@@ -12,7 +12,7 @@
         overflow-y: auto;
         border: 1px solid red;
       }
-      .content {
+      .content-container {
         position: relative;
       }
       .item {
@@ -30,7 +30,7 @@
         :style="`height: ${ limit * rowHeight }px`"
         @scroll="onScroll"
       >
-        <ul class="content" :style="`height: ${ contentHeight }px`">
+        <ul class="content-container" :style="`height: ${ contentHeight }px`">
           <li
             class="item"
             v-for="item in contentData"
@@ -43,8 +43,8 @@
             `"
           >
             {{ item.title }} {{ item.index * rowHeight }}
-          </>
-        </>
+          </li>
+        </ul>
       </div>
     </div>
 
