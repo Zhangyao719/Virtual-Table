@@ -107,7 +107,6 @@
 如果遇到滑动过快出现空白区域的问题，可以添加缓冲
 
 ```js
-const bufferSize = 20;
 const bufferSize = 20 // 用于缓冲（防止滚动过快，出现白屏）
 const startIndex = computed(() => Math.max(originStartIndex.value - bufferSize, 0))
 const endIndex = computed(() => Math.min(startIndex.value + limit.value + bufferSize, total.value))
